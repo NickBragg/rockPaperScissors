@@ -5,32 +5,29 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-public class DisplayResultPaper extends Activity {
+
+public class Result extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-        //Test
-
-        // Create the text view
-        TextView textView = new TextView(this);
-        textView.setTextSize(40);
-        textView.setText(message);
-
-        // Set the text view as the activity layout
-        setContentView(textView);
+        TextView textView = (TextView)findViewById(R.id.txtMessage);
+        ImageView imageView = (ImageView)findViewById(R.id.imageResult);
+        //imageView.setImageResource();
+        textView.setText("");
+        setContentView(R.layout.activity_result);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.display_result_paper, menu);
+        getMenuInflater().inflate(R.menu.result, menu);
         return true;
     }
 
